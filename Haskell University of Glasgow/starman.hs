@@ -15,7 +15,7 @@ check word display c
           then c
           else y | (x,y) <- zip word display])
 
---Extend code to display word in case fail
+--Extend code to display word in case of failure to guess word
 turn :: String -> String -> Int -> IO ()
 turn word display n =
   do if n==0
@@ -32,7 +32,7 @@ mkguess word display n =
      let n' = if correct then n else n-1
      turn word display' n'
 
---Extension of Starman game code to generate a random word from the list
+--Extension of Starman game code to generate a random word from the list words
 starman :: Int -> IO ()
 starman n =
   do
