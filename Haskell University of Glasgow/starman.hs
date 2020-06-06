@@ -8,17 +8,18 @@
 --they have lost the game. However if the user guesses all the letters in the word, 
 --they have won the game.
 -- Enter starman "functionally" 5 for sample play
-
+import System.Random
 check :: String -> String -> Char -> (Bool,String)
 check word display c
   = (c `elem` word, [if x==c
           then c
           else y | (x,y) <- zip word display])
 
+--Extend code to display word in case fail
 turn :: String -> String -> Int -> IO ()
 turn word display n =
   do if n==0
-       then putStrLn "You lose"
+       then putStrLn ("You lose word was: " ++ word)
        else if word==display
               then putStrLn "You win!"
               else mkguess word display n
@@ -30,8 +31,15 @@ mkguess word display n =
      let (correct, display') = check word display (q!!0)
      let n' = if correct then n else n-1
      turn word display' n'
-starman :: String -> Int -> IO ()
-starman word n = turn word ['-' | x <- word] n
+
+--Extension of Starman game code to generate a random word from the list
+starman :: Int -> IO ()
+starman n =
+  do
+    let words = ["hi","cat","home","country","computer","hat","wow","fly","airplane","cow","maps","make","run","sigh","golf","running","hat","television","games","hangman","pearl","cat","dog","snake","black","white","cabin","trees","birds","animals"]
+    randomWord <- getStdRandom (randomR (0, length words))
+    let word' = words !! randomWord
+    turn word' ['-' | x <- word'] n
 
 
 
