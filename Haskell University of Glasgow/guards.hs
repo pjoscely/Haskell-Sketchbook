@@ -5,7 +5,7 @@ absolute x
   | x<0 = -x
   | otherwise = x
 
---Gold score
+--Golf score
 holeScore :: Int -> Int -> String
 holeScore strokes par
   | score < 0 = show (abs score) ++ " under par"
