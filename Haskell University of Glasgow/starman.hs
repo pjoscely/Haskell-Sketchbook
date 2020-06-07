@@ -7,7 +7,7 @@
 --then the user loses a star. Once the user has no stars left, 
 --they have lost the game. However if the user guesses all the letters in the word, 
 --they have won the game.
--- Enter starman "functionally" 5 for sample play
+-- Enter starman # to play
 import System.Random
 check :: String -> String -> Char -> (Bool,String)
 check word display c
