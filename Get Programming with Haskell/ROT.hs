@@ -82,31 +82,37 @@ rotNdecoder n c = toEnum rotation
 rotEncoder :: String -> String
 rotEncoder text = map rotChar text
  where alphaSize = 1 + fromEnum (maxBound :: Char)
+  -- note Curry application of rotN
        rotChar = rotN alphaSize
 
 rotDecoder :: String -> String
 rotDecoder text =  map rotCharDecoder text
  where alphaSize = 1 + fromEnum (maxBound :: Char)
+ -- note Curry application of rotNdecoder
        rotCharDecoder = rotNdecoder alphaSize
 
 threeLetterEncoder :: [ThreeLetterAlphabet] -> [ThreeLetterAlphabet]
 threeLetterEncoder vals =  map rot3l vals
  where alphaSize = 1 + fromEnum (maxBound :: ThreeLetterAlphabet)
+ -- note Curry application of rotN
        rot3l = rotN alphaSize
 
 threeLetterDecoder :: [ThreeLetterAlphabet] -> [ThreeLetterAlphabet]
 threeLetterDecoder vals =  map rot3ldecoder vals
  where alphaSize = 1 + fromEnum (maxBound :: ThreeLetterAlphabet)
+  -- note Curry application of rotNdecoder
        rot3ldecoder = rotNdecoder alphaSize
 
 fourLetterEncoder :: [FourLetterAlphabet] -> [FourLetterAlphabet]
 fourLetterEncoder vals = map rot4l vals
  where alphaSize = 1 + fromEnum (maxBound :: FourLetterAlphabet)
+  -- note Curry application of rotN
        rot4l = rotN alphaSize
 
 fourLetterDecoder :: [FourLetterAlphabet] -> [FourLetterAlphabet]
 fourLetterDecoder vals =  map rot4ldecoder vals
  where alphaSize = 1 + fromEnum (maxBound :: FourLetterAlphabet)
+  -- note Curry application of rotNdecoder
        rot4ldecoder = rotNdecoder alphaSize
 
 
