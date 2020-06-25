@@ -12,7 +12,8 @@
 -- By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
 -- find the sum of the even-valued terms.
 
---Fast fibonacci with momization
+-- Fast fibonacci with memoization
+-- The nice lazy solution was taken from: https://wiki.haskell.org/Memoization
 memoized_fib :: Int -> Integer
 memoized_fib = (map fib [0 ..] !!)
    where fib 0 = 1
