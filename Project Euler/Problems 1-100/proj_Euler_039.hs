@@ -26,7 +26,7 @@ list_of_lists = map tri_list [12..1000]
 
 -- Filter out empty lists 
 -- [[(3,4,5)],[(6,8,10)],[(5,12,13)],[(9,12,15)],...,[(31,480,481)],[(249,332,415)],[(200,375,425)]]
--- The aabove is a very large list of lists, so only the start and end are shown
+-- The above is a very large list of lists, so only the start and end are shown
 filter_list_of_lists :: [[(Integer, Integer, Integer)]]
 filter_list_of_lists= filter (/=[]) list_of_lists
 
@@ -62,7 +62,7 @@ total (a,b,c) = a+b+c
 -- map total on list_of_triples
 -- [840,840,840,840,840,840,840,840]
 -- (236.88 secs, 101,663,869,968 bytes)
--- so the common perimeter = 840 for 8 (mx number) different triples 
+-- so the common perimeter = 840 for 8 (max number) different triples 
 perimeter_list :: [Integer]
 perimeter_list = map total list_of_triples 
 
