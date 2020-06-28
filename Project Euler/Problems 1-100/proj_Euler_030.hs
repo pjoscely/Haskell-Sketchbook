@@ -62,6 +62,7 @@ compare_tuples (x,y) = x==y
 solns :: [(Integer, Integer)]
 solns = [z|z<-zipped,compare_tuples z == True]
 
+
 sum_of_all = sum$map fst solns 
 
 -- Display the answer
