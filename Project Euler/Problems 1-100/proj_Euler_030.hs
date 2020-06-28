@@ -47,9 +47,12 @@ fifth_pow_list = map exp_5 list_of_lists
 list_of_sum_of_powers :: [Int]
 list_of_sum_of_powers = map sum fifth_pow_list
 
+-- this is to avoid potential type conflicts
 modify_list_of_sum_of_powers :: [Integer]
 modify_list_of_sum_of_powers= map fromIntegral list_of_sum_of_powers
 
+-- create zipped list 
+-- zipped!!2345 (2347,18106)
 zipped :: [(Integer, Integer)]
 zipped = zip [2..354294] modify_list_of_sum_of_powers
 
@@ -62,7 +65,8 @@ compare_tuples (x,y) = x==y
 solns :: [(Integer, Integer)]
 solns = [z|z<-zipped,compare_tuples z == True]
 
-
+-- produce sum 
+sum_of_all :: Integer
 sum_of_all = sum$map fst solns 
 
 -- Display the answer
