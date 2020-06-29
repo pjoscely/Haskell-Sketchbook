@@ -15,8 +15,10 @@
 
 -- Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 
--- convert_list "3456789" -> [3,4,5,6,7,8,9]
+
 import Data.List  
+
+-- convert_list "3456789" -> [3,4,5,6,7,8,9]
 convert_list :: String -> [Int]
 convert_list = map (read . return) . concat . lines
 
