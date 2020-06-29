@@ -9,7 +9,7 @@
 -- What is the sum of the digits of the number 2^1000?
 
 import Data.List  
-
+-- convert_list "3456789" -> [3,4,5,6,7,8,9]
 convert_list :: String -> [Int]
 convert_list = map (read . return) . concat . lines
 
