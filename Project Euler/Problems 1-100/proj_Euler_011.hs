@@ -183,12 +183,15 @@ max_vertical = maximum[product $slice i (i+3) $get_c grid j |i<-[0..16],j<-[0..1
 
 
 -- Compute max 4 positive slope diagonal
+max_pos_diag :: Integer
 max_pos_diag = maximum[pos_diag grid i j |i<-[3..19],j<-[0..16]]
 
 
 -- Compute max 4 negative slope diagonal
+max_neg_diag :: Integer
 max_neg_diag = maximum[neg_diag grid i j |i<-[0..16],j<-[0..16]]
 
+answer :: Integer
 answer = maximum[max_horizontal,max_vertical,max_pos_diag,max_neg_diag]
 
 -- main
