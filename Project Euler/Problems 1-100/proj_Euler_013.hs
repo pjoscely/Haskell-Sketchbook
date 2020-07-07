@@ -51,15 +51,12 @@ total_all = do
       xs <- read_numbers
       return (sum xs)
 
--- hard code answer is eastiest; avoids lifting out of the monad
-answer = take 10 "5537376230390876637302048746832985971773659831892672"
+to_io_string :: IO String
+to_io_string = fmap show total_all
 
--- Display answer
--- main -> 5537376230
--- (0.00 secs, 122,568 bytes)
-main :: IO ()
-main = do  
-    putStrLn answer
+--  answer -> "5537376230"
+answer :: IO [Char]
+answer = (fmap$take 10) to_io_string
 
 -- Congratulations, the answer you gave to problem 13 is correct.
 
