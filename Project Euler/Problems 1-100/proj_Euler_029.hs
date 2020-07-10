@@ -46,7 +46,7 @@ list_of_powers = [a^b|a<-[2..100],b<-[2..100]]
 set_of_powers :: Set Integer
 set_of_powers = fromList list_of_powers 
 
--- Compute number of disticnt terms
+-- Compute number of distinct terms
 num_distinct :: Int
 num_distinct = length set_of_powers
 
