@@ -9,6 +9,7 @@ Collected Haskell Projects
 4. Project Euler problems solved with Haskell 
    https://projecteuler.net/
 5. Programming in Haskell 2nd Edition, by Graham Hutton 
+   http://www.cs.nott.ac.uk/~pszgmh/
 
      
    
