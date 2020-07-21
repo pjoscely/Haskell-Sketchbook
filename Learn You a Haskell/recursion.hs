@@ -114,3 +114,23 @@ quicksort (x:xs) =
         biggerSorted = quicksort [a | a <- xs, a > x]  
     in  smallerSorted ++ [x] ++ biggerSorted 
 
+
+-- Recursively computes the number of ways need
+-- to solve a Tower of Hanoi puzzle with
+-- n disks
+-- f 64 -> 18446744073709551615
+f :: (Eq t, Num t, Num p) => t -> p
+f 0 = 0
+f 1 = 1
+f n = 2*f(n-1)+1
+
+-- Gives the sequence of moves to solve a n disc 
+-- Tower of Hanoi 
+-- Here all discs are moved to peg "b"
+-- hanoi 1  "a" "b" "c" -> [("a","b")]
+-- hanoi 2  "a" "b" "c" -> [("a","c"),("a","b"),("c","b")]
+-- hanoi 3 "a" "b" "c" -> 
+-- [("a","b"),("a","c"),("b","c"),("a","b"),("c","a"),("c","b"),("a","b")]
+hanoi :: Integer -> a -> a -> a -> [(a, a)]
+hanoi 0 _ _ _ = []
+hanoi n a b c = hanoi (n-1) a c b ++ [(a,b)] ++ hanoi (n-1) c b a
