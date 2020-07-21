@@ -115,7 +115,7 @@ quicksort (x:xs) =
     in  smallerSorted ++ [x] ++ biggerSorted 
 
 
--- Recursively computes the number of ways need
+-- Recursively computes the number of ways needed
 -- to solve a Tower of Hanoi puzzle with
 -- n disks
 -- f 64 -> 18446744073709551615
