@@ -28,6 +28,7 @@ isPrime k = if k > 2 then null [ x | x <- [2..isqrt k], k `mod` x == 0] else Fal
 
 -- Generate list of primes less than a million
 -- Should read primes from an external text file 
+-- but this is good enough for now
 primes :: [Integer]
 primes = [p| p<-[2..999999], isPrime p]
 
