@@ -52,7 +52,7 @@ combine n = n + revNum n
 
 -- Tests if a number is Lychrel using the less than 50 iteration rule
 -- is_Ly 196 -> True
--- is_Ly 4994 -> False
+-- is_Ly 4994 -> True
 -- Use drop 1 to not count palindromes which are Lychrel
 is_Ly :: Integer -> Bool
 is_Ly n = if (filter (== True)$map is_palin$drop 1$take 50 (iterate (combine) n)) == [] then True else False
