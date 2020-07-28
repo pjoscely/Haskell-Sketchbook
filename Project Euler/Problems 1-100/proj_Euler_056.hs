@@ -36,6 +36,7 @@ You are the 56410th person to have solved this problem.
 -- ***************************************************************************
 -- Haskell Solution 
 -- Form all possible powers
+
 list_of_powers :: [Integer]
 list_of_powers = [a^b|a<-[1..99],b<-[1..99]]
 
