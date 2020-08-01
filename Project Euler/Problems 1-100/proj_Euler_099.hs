@@ -44,7 +44,6 @@ You are the 29301st person to have solved this problem.
 -- Haskell solution
 import System.IO  
 
-
 -- Read base exponent pairs and stores each in a tuple
 -- 525895,525320 -> (525895,525320)
 readPair :: (Read a, Read b) => [Char] -> (a, b)
