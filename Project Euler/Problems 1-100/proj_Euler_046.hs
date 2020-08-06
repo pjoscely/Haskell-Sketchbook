@@ -40,7 +40,7 @@ primes = [p| p<-[2..10001], isPrime p]
 sqs :: [Integer]
 sqs = [x^2| x<-[1..1000]]
 
--- Generate tentative of odd composites
+-- Generate tentative list of odd composites
 odd_comp :: [Integer]
 odd_comp =  [n|n<-[9,11..10001], (not.isPrime) n]
 
