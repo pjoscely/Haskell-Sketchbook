@@ -7,6 +7,7 @@ Combinatoric selections
 Square root convergents
  
 Problem 57
+
 It is possible to show that the square root of two can be expressed 
 as an infinite continued fraction.
 3/2 -> 7/5 -> 17/12 -> 41/29 ->...
