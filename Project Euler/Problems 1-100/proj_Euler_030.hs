@@ -79,6 +79,5 @@ main = do
     putStrLn$show sum_of_all
 
 -- Congratulations, the answer you gave to problem 30 is correct.
-
 -- You are the 107520th person to have solved this problem.
 
