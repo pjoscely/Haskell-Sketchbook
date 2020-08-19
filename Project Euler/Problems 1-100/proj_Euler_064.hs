@@ -7,9 +7,9 @@ How many continued fractions for N <= 10000  have an odd period?
 -}
 
 -- This is the first solution which uses a file of precomputed 
--- continued fractions period values. Although a cheat nonethelass
+-- continued fractions period values. Although a cheat, nonetheless
 -- this solution is presented as an example of reading and 
---  processing data stored in an external text file. See: 
+-- processing data stored in an external text file. See: 
 -- https://oeis.org/search?q=1%2C2%2C1%2C2%2C4%2C2%2C1%2C2%2C2%2C5&sort=&language=&go=Search
 -- https://oeis.org/A013943/b013943.txt
 
