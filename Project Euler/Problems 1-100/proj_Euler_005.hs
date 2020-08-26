@@ -16,7 +16,7 @@ ans = 16*9*5*7*11*13*17*19
 
 -- You are the 484475th person to have solved this problem.
 
--- The following is just trying things our. Should use Haskell arrays not lists for this brute force
+-- The following is a hack. Should use Haskell arrays not lists for this brute force solution
 even_div :: Integral a => a -> Bool
 even_div n = (n `mod` 16 == 0) && (n `mod` 9 == 0) && (n `mod` 5 == 0) && (n `mod` 7 == 0) && (n `mod` 11 == 0) 
              && (n `mod` 13 == 0) && (n `mod` 17 == 0)&& (n `mod` 19 == 0)  
