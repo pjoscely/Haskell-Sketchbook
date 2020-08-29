@@ -97,8 +97,8 @@ isPrime :: Integral a => a -> Bool
 isPrime 2 = True
 isPrime k = if k > 2 then null [ x | x <- [2..isqrt k], k `mod` x == 0] else False
 
-
--- Rotates a list
+-- *** Not used ************
+-- Rotates a list n positions
 -- rotate 2 [1,2,3] -> [3,1,2]
 -- rotate 0 [1,2,3] -> [1,2,3]
 -- rotate 3 [1,2,3] -> [1,2,3]
@@ -106,12 +106,50 @@ isPrime k = if k > 2 then null [ x | x <- [2..isqrt k], k `mod` x == 0] else Fal
 rotate :: Int -> [a] -> [a]
 rotate _ [] = []
 rotate n xs = zipWith const (drop n (cycle xs)) xs
+-- ************************************************
+
+-- Rotates a list a single position
+-- r [1,2,3,4] -> [2,3,4,1]
+r :: [a] -> [a]
+r [] = []
+r (x:xs) = xs++[x]
+
+-- Generate a list of all rotation lists of a number
+-- gen_rot 123 ->[[1,2,3],[2,3,1],[3,1,2]]
+gen_rot :: Show a => a -> [[Int]]
+gen_rot n = take (length l) (iterate (r) l)
+            where l = list_of_digits n
+
+-- Generate a list of all rotations of a number
+--  rot_num 123456 -> [123456,234561,345612,456123,561234,612345]
+rot_num :: Show a => a -> [Integer]
+rot_num n =  map convert_digit_list $ gen_rot n
+
+-- Tests if all the rotations of a number are prime
+test n =  all (==True) (map isPrime ( rot_num n))
 
 -- Any two or more digit circular prime cannot contain the digits:
 -- 2, 4, 5, 6, 8
-
+-- is_valid 193939 -> True
+-- is_valid 7315 -> False
 is_valid n = not (2 `elem` l) && not (4 `elem` l) && not (6 `elem` l) && not (8 `elem` l) && not (5 `elem` l) 
              where l = list_of_digits n
 
+-- Reduces the candidate list of possible numbers to search 
+cand :: [Integer]
+cand = [p|p<-[11..999999], is_valid p, isPrime p]
 
+-- Generate all possible solutions
+-- [2,3,5,7,11,13,17,31,37,71,73,79,97,113,131,197,199,311,337,373,719,733,919,971,
+-- 991,1193,1931,3119,3779,7793,7937,9311,9377,11939,19391,19937,37199,39119,71993,
+-- 91193,93719,93911,99371,193939,199933,319993,331999,391939,393919,919393,933199,
+-- 939193,939391,993319,999331]
+answer :: [Integer]
+answer = [2,3,5,7]++[c|c<-cand, test c == True]
+
+-- main -> 55
+-- (12.15 secs, 20,053,018,520 bytes)
+main :: IO ()
+main = do  
+       print$length answer
 
