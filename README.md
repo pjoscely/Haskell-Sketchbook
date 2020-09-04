@@ -10,6 +10,8 @@ Collected Haskell Projects
    https://projecteuler.net/
 5. Programming in Haskell 2nd Edition, by Graham Hutton 
    http://www.cs.nott.ac.uk/~pszgmh/
+6. CIS 194: Introduction to Haskell (Spring 2013)
+   https://www.cis.upenn.edu/~cis194/spring13/
    
 "Grothendieck describes two styles in mathematics. If you think of a theorem to
 be proved as a nut to be opened, so as to reach “the nourishing flesh protected by
