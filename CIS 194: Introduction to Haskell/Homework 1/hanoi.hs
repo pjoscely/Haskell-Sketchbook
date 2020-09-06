@@ -6,7 +6,7 @@ all disks stacked on the first peg to an ending configuration with all
 disks stacked on the last peg.
 
 *       *       *
-*		*       *
+*		    *       *
 *       *       *
 *       *       *
 *       *       *
