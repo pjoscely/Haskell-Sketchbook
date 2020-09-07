@@ -6,7 +6,7 @@ all disks stacked on the first peg to an ending configuration with all
 disks stacked on the last peg.
 
 *       *       *
-*		*       *
+*	 *       *
 *       *       *
 *       *       *
 *       *       *
@@ -53,6 +53,7 @@ type Move = (Peg, Peg)
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
 hanoi 0 src dest aux = []
 hanoi n src dest aux = hanoi (n-1) src aux dest ++ [(src,dest)] ++ hanoi (n-1) aux dest src
+
 {-
 Exercise 6 (Optional) What if there are four pegs instead of three?
 That is, the goal is still to move a stack of discs from the first peg to
@@ -74,6 +75,7 @@ It has been proved that for 4 pegs, the value of k that minimizes
 the number of moves is the one that we have used here.
 https://en.wikipedia.org/wiki/Tower_of_Hanoi#Frame%E2%80%93Stewart_algorithm
 -}
+
 -- hanoi4 3  "a" "d" "b" "c" ->
 -- [("a","b"),("a","c"),("a","d"),("c","d"),("b","d")]
 -- length$hanoi4 15  "a" "d" "b" "c" -> 129
