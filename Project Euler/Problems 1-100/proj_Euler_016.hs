@@ -19,7 +19,6 @@ total_digits = sum$convert_list$ show (2^1000)
 
 -- Display the answer
 -- 1366
--- (0.02 secs, 1,322,432 bytes)
 main :: IO ()
 main = do  
     putStrLn$show total_digits 
