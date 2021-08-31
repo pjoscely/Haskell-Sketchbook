@@ -13,7 +13,7 @@
 -- find the sum of the even-valued terms.
 
 -- Fast fibonacci with memoization
--- The nice lazy solution was taken from: https://wiki.haskell.org/Memoization
+-- This nice lazy solution was taken from: https://wiki.haskell.org/Memoization
 memoized_fib :: Int -> Integer
 memoized_fib = (map fib [0 ..] !!)
    where fib 0 = 1
