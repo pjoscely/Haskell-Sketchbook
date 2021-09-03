@@ -23,7 +23,7 @@ isPrime k = if k > 2 then null [ x | x <- [2..isqrt k], k `mod` x == 0] else Fal
 ans :: Integer
 ans = sum$[n|n<-[2..1999999],  isPrime n]
 
--- Could be made faster with Sieving https://en.wikipedia.org/wiki/Generation_of_primes
+-- Could be made faster with more faster prime generation algorithm.
 
 -- ans
 -- 142913828922
