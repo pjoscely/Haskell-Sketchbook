@@ -58,6 +58,8 @@ perfect_square n = sq * sq == n
     where sq = floor $ sqrt $ (fromIntegral n::Double)
 
 
+-- int_square_root 5 = 2 
+-- int_square_root 4 = 2 
 int_square_root :: (Integral b, Integral a) => a -> b
 int_square_root n = floor $ sqrt $ (fromIntegral n::Double)
 
