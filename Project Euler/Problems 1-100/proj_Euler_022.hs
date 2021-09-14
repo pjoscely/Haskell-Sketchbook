@@ -64,7 +64,7 @@ main            ::  IO ()
 main            =   do  names <- readFile "p022_raw_names.txt"
                         let namelist = makeList names
                         print $ totalScores namelist
--- Build sorted list of tuples (position,name)
+-- Build sorted list of tuples (position, name)
 makeList        ::  Integral a => String -> [(a, String)]
 makeList n      =   zip [1..] (sort . read $ n')
     where   n'          =   "[" ++ n ++ "]"
