@@ -45,7 +45,7 @@ all_fib = map length$ map show$ map memoized_fib [0..]
 index :: Maybe Int
 index = elemIndex 1000 all_fib 
 
--- Also by quick trial and error in Prelude>
+-- Alos by inspection in Prelude>
 -- length$show$ memoized_fib 4780 -> 1000
 -- length$show$ memoized_fib 4779 -> 999
 -- the term is then 4782 due to the offset of 2
