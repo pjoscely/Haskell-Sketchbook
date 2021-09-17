@@ -22,16 +22,13 @@
 import Data.List
 
 -- recursive permutation generator
-permute :: String -> [String]
-permute [] = [[]]
-permute str = do
-    x  <- str
-    xs <- permute (delete x str)
-    return (x:xs)
+per :: Eq a => [a] -> [[a]]
+per [] = [[]]
+per xs = [ x:ys | x <- xs, ys <- per (delete x xs)]
 
 -- sort the list permuations and extract the millionth item
 soln :: String
-soln = (sort$permute "0123456789")!!999999
+soln = (sort$per "0123456789")!!999999
 
 -- main -> 2783915460
 -- (25.05 secs, 11,828,545,464 bytes)
