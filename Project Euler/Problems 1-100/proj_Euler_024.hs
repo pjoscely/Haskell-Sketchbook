@@ -31,7 +31,6 @@ soln :: String
 soln = (sort$per "0123456789")!!999999
 
 -- main -> 2783915460
--- (25.05 secs, 11,828,545,464 bytes)
 main :: IO ()
 main = do  
     putStrLn soln
