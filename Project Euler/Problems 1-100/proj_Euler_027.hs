@@ -1,4 +1,5 @@
 
+
 {-
 Project Euler
 https://projecteuler.net/
@@ -79,7 +80,6 @@ You are the 85169th person to have solved this problem.
 -- **************************************************************************************
 -- Haskell Solution 
 -- v 1.0 needs much work
-import Data.List
 -- the mutiplier b must be prime in n^2+a*n+b since n starts with 0
 -- in n^2+a*n+b, this reduces b to primes less than 1000
 -- here these primes are hard coded for speed up
@@ -123,7 +123,7 @@ test a b n = true_list$map isPrime$ quad_list a b n
 
 -- val 1 41 -> 40
 val :: (Integral a2, Num a1) => a2 -> a2 -> a1
-val a b = sum[1|n<- [0..72],test a b n == True]
+val a b = sum[1|n<- [0..70],test a b n == True]
 
 -- search for the max val in a restricted region 
 -- 71 (1.39 secs, 694,001,544 bytes)
