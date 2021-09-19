@@ -21,11 +21,6 @@ It can be seen that 1/7 has a 6-digit recurring cycle.
 Find the value of d < 1000 for which 1/d contains the longest recurring cycle 
 in its decimal fraction part.
 -}
-import Data.List
-import qualified Data.Set as Set
-import qualified Data.Map as Map
--- size :: Integer
--- size = 7`div`2
 
 -- computes the ceiling of the square root 
 -- isqrt 17 = 5
