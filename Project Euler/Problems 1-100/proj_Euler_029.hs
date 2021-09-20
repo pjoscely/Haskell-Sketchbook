@@ -46,15 +46,21 @@ list_of_powers = [a^b|a<-[2..100],b<-[2..100]]
 set_of_powers :: Set Integer
 set_of_powers = fromList list_of_powers 
 
--- Compute number of distinct terms
+-- Compute number of disticnt terms
 num_distinct :: Int
 num_distinct = length set_of_powers
 
+-- (0.03 secs, 22,333,048 bytes)
 -- main -> 9183
--- (0.68 secs, 22,333,048 bytes)
 main :: IO ()
 main = do  
     putStrLn$show num_distinct
+
+
+
+
+
+
 
 
 
