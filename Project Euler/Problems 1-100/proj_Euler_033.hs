@@ -70,7 +70,7 @@ import qualified Data.Set as Set
 char2float :: Char -> Float
 char2float n = fromInteger (read [n])
 
--- Helper tuple fucntions used below
+-- Helper tuple functions used below
 
 get1st :: (a, b, c, d) -> a
 get1st (a,_,_,_) = a
@@ -116,7 +116,7 @@ lst_3 = [(x,y,last x, last y)| x<- lst_2d_string ,  y<- lst_2d_string, x<y, (hea
 lst_4 :: [(String, String, Char, Char)]
 lst_4 = [(x,y,last x, head y)| x<- lst_2d_string ,  y<- lst_2d_string, x<y, (head  x == last y), (last x /= head y)]  
 
--- Filter the forur lists to find solutions
+-- Filter the four lists to find solutions
 
 -- Empty list
 sol_1 :: [(String, String, Char, Char)]
@@ -135,12 +135,10 @@ sol_3 = [x| x<- lst_3,  (read(get1st x)::Float)/(read(get2nd x)::Float) == (char
 sol_4 :: [(String, String, Char, Char)]
 sol_4 = [x| x<- lst_4,  (read(get1st x)::Float)/(read(get2nd x)::Float) == (char2float$get3rd x)/(char2float$get4th x)]
 
--- main 
--- (0.01 secs, 116,528 bytes)
+-- main = 100
 main :: IO ()
 main = do  
     putStrLn$show (4*5*5)
-
 
 
 
