@@ -57,11 +57,8 @@ print(ct)
 -}
 -- ********************************************************
 -- Haskell Solution
-import Data.List
-import qualified Data.Set as Set
 -- ********************************************************
 -- Various helper functions that might be useful
-
 -- int_to_string 637287 -> "637287"
 int_to_string :: Show a => a -> String
 int_to_string n = show n
@@ -107,7 +104,6 @@ rotate :: Int -> [a] -> [a]
 rotate _ [] = []
 rotate n xs = zipWith const (drop n (cycle xs)) xs
 -- ************************************************
-
 -- Rotates a list a single position
 -- r [1,2,3,4] -> [2,3,4,1]
 r :: [a] -> [a]
@@ -129,10 +125,10 @@ rot_num n =  map convert_digit_list $ gen_rot n
 test n =  all (==True) (map isPrime ( rot_num n))
 
 -- Any two or more digit circular prime cannot contain the digits:
--- 2, 4, 5, 6, 8
+-- 0, 2, 4, 5, 6, 8
 -- is_valid 193939 -> True
 -- is_valid 7315 -> False
-is_valid n = not (2 `elem` l) && not (4 `elem` l) && not (6 `elem` l) && not (8 `elem` l) && not (5 `elem` l) 
+is_valid n = not (0 `elem` l) && not (2 `elem` l) && not (4 `elem` l) && not (6 `elem` l) && not (8 `elem` l) && not (5 `elem` l) 
              where l = list_of_digits n
 
 -- Reduces the candidate list of possible numbers to search 
