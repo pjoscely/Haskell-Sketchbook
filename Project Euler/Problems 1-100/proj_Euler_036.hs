@@ -31,6 +31,7 @@ for i in range(10**6):
         print(str_10,str_2)
 print(ct)
 '''
+0 0
 1 1
 3 11
 5 101
@@ -84,7 +85,7 @@ convert_list = map (read . return) . concat . lines
 list_of_digits :: Show a => a -> [Int]
 list_of_digits n = (convert_list . int_to_string) n
 
--- Test if n is a proper deciaml palindrome
+-- Test if n is a proper decimal palindrome
 -- is_dec 585585 -> True
 is_dec :: Show a => a -> Bool
 is_dec n = if (head digits_lst) /= 0 && digits_lst == reverse digits_lst  then True else False
@@ -98,13 +99,15 @@ is_bin n = if (head bin_digits_lst) /= 0 && bin_digits_lst == reverse bin_digits
 
 -- Filter and sum all solutions
 solution :: Integer
-solution = sum[n| n<-[1..999999], is_dec n,  is_bin n]
+solution = sum[n| n<-[0..999999], is_dec n,  is_bin n]
 
--- 872187
--- (6.67 secs, 10,958,877,536 bytes)
 main :: IO ()
 main = do  
     putStrLn$show solution
+-- main = 872187
+
+
+
 
 
 
