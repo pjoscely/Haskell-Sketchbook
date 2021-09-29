@@ -61,7 +61,6 @@ You are the 71723rd person to have solved this problem.
 -- **************************************************************************************
 -- Haskell Solution ~ 
 -- Brute Force rather slow, but it is what it is 
-import Data.List
 
 -- computes the ceiling of the square root 
 -- isqrt 17 = 5
@@ -120,6 +119,10 @@ total = sum[n| n<-[23..999999], let lst =list_of_digits n, ltrunc lst,  rtrunc l
 main :: IO ()
 main = do  
     putStrLn$show total
+
+
+
+
 
 
 
