@@ -27,7 +27,7 @@ words.txt = ["A","ABILITY","ABLE","ABOUT","ABOVE","ABSENCE","ABSOLUTELY","ACADEM
 import Data.Char
 import Data.List
 
--- Possible list of traingle values; predicated on bounded word size
+-- Possible list of triangle values; predicated on bounded word size
 tri_lst :: [Integer]
 tri_lst = [0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91, 105, 120,136, 153, 171, 190, 
            210, 231, 253, 276, 300, 325, 351, 378, 406, 435, 465, 496, 528, 561, 595, 630, 
