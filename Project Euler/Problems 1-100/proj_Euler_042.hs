@@ -23,7 +23,6 @@ words.txt = ["A","ABILITY","ABLE","ABOUT","ABOVE","ABSENCE","ABSOLUTELY","ACADEM
 
 -}
 
-
 import Data.Char
 import Data.List
 
@@ -52,7 +51,6 @@ parse = words . map replaceComma . filter notQuote where
     replaceComma ',' = ' '
     replaceComma c = c
     notQuote = (/= '"')
-
 
 -- 162 -> (0.04 secs, 4,593,928 bytes)
 main :: IO ()  
