@@ -15,10 +15,9 @@ It can be verified that T285 = P165 = H143 = 40755.
 Find the next triangle number that is also pentagonal and hexagonal.
 -}
 
-import Data.List
 import qualified Data.Set as Set
 
--- Build the three sets up to 10
+-- Build the three sets up to 10^6
 tri :: Set.Set Integer
 tri = Set.fromList [t|n<- [1..10^6], let t = n*(n+1)`div`2]
 
@@ -28,7 +27,7 @@ pent = Set.fromList [p|n<- [1..10^6], let p = n*(3*n-1)`div`2]
 hex :: Set.Set Integer
 hex = Set.fromList [h|n<- [1..10^6], let h = n*(2*n-1)]
 
--- Interesect the three sets 
+-- Intersect the three sets 
 -- tph -> fromList [1,40755,1533776805]
 -- (3.82 secs, 1,422,281,296 bytes)
 tph :: Set.Set Integer
