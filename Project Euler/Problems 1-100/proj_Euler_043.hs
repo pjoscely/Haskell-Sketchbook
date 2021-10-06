@@ -20,8 +20,9 @@ d8d9d10=289 is divisible by 17
 Find the sum of all 0 to 9 pandigital numbers with this property.
 -}
 
-import Data.List
 import qualified Data.Set as Set
+-- ********************************************************
+-- Various helper functions that might be useful
 -- int_to_string 637287 -> "637287"
 int_to_string :: Show a => a -> String
 int_to_string n = show n
@@ -44,6 +45,7 @@ convert_to_int n = read n :: Integer
 -- convert_digit_list [1,2,3,4] -> 1234
 convert_digit_list :: Show a => [a] -> Integer
 convert_digit_list lst = convert_to_int$concat$ map show lst
+-- ********************************************************
 
 -- Finds the equivalent decimal value of a three digit list
 -- three_digit_val [0,6,3] -> 63
@@ -74,25 +76,22 @@ is_pan :: Show a => a -> Bool
 is_pan n = if (Set.size (Set.fromList lst) == 10) then True else False
          where lst = list_of_digits n 
 
+-- This slice function includes the from and to indexes  
+--  slice 2 5 [1,2,3,4,5,6,7,8] -> [3,4,5,6]
 slice :: Int -> Int -> [a] -> [a]
 slice from to xs = take (to - from + 1) (drop from xs)
-
 
 -- Filter using permutations the possible 0 to 9 pandigitials
 p_lst :: [[Integer]]
 p_lst = [p|p<-perms [0,1,2,3,4,5,6,7,8,9],head p /= 0, p!!5 == 5, p!!3 `mod` 2 == 0]
 
-
 -- Tests the substring divisibilty condition
 has_prop :: Show a => a -> Bool
-has_prop n = is_divisible (slice 2 4 lst) 3 && is_divisible (slice 4 6 lst) 7 &&
-             is_divisible (slice 5 7 lst) 11 && is_divisible (slice 6 8 lst) 13 &&
-             is_divisible (slice 7 9 lst) 17
+has_prop n = is_divisible (slice 2 4 lst) 3 && is_divisible (slice 4 6 lst) 7 && is_divisible (slice 5 7 lst) 11 && is_divisible (slice 6 8 lst) 13 && is_divisible (slice 7 9 lst) 17
              where lst = list_of_digits n 
 
 -- Generate the six solution lists
 -- answer_lst 
--- (18.03 secs, 18,117,619,376 bytes)
 -- [[1,4,0,6,3,5,7,2,8,9],[1,4,6,0,3,5,7,2,8,9],
 -- [4,1,0,6,3,5,7,2,8,9],[4,1,6,0,3,5,7,2,8,9],
 -- [1,4,3,0,9,5,2,8,6,7],[4,1,3,0,9,5,2,8,6,7]]
@@ -101,14 +100,13 @@ answer_lst = [p|p<-p_lst, (is_pan.convert_digit_list) p ,has_prop$convert_digit_
 
 -- sum answers as Integers
 answer :: Integer
-answer = (sum.map convert_digit_list) [[1,4,0,6,3,5,7,2,8,9],[1,4,6,0,3,5,7,2,8,9],
-                                    [4,1,0,6,3,5,7,2,8,9],[4,1,6,0,3,5,7,2,8,9],
-                                    [1,4,3,0,9,5,2,8,6,7],[4,1,3,0,9,5,2,8,6,7]]
+answer = (sum.map convert_digit_list)[[1,4,0,6,3,5,7,2,8,9],[1,4,6,0,3,5,7,2,8,9],[4,1,0,6,3,5,7,2,8,9],[4,1,6,0,3,5,7,2,8,9],[1,4,3,0,9,5,2,8,6,7],[4,1,3,0,9,5,2,8,6,7]]
 
---main -> 16695334890
 main :: IO ()
 main = do  
     (putStrLn.show) answer
+-- main = 16695334890
+
 
 -- Congratulations, the answer you gave to problem 43 is correct.
 
