@@ -18,6 +18,7 @@ exhibiting this property, but there is one other 4-digit increasing sequence.
 What 12-digit number do you form by concatenating the three terms in this sequence?
 -}
 
+
 import Data.List
 import qualified Data.Set as Set
 -- ********************************************************
@@ -57,9 +58,8 @@ isPrime :: Integral a => a -> Bool
 isPrime 2 = True
 isPrime k = if k > 2 then null [ x | x <- [2..isqrt k], k `mod` x == 0] else False
 
-
 -- This returns all possible ways of inserting a new element into a list.
--- interleave 1 [2,3,4] -> [[1,2,3,4],[2,1,3,4],[2,3,1,4],[2,3,4,1]]
+-- interleave 1 [2,3,4] -> [[1,2,3,4],[2,1,3,4],[2,3,1,4][2,3,4,1]]
 interleave :: a -> [a] -> [[a]]
 interleave x []     = [[x]]
 interleave x (y:ys) = (x:y:ys) : map (y:) (interleave x ys)
@@ -82,7 +82,7 @@ combinations k ns = filter ((k==).length) $ subsequences ns
 is_arth :: (Eq a, Num a) => [a] -> Bool
 is_arth lst = (lst!!1 - lst!!0) == (lst!!2 - lst!!1)
 
--- Generate list of prossible primes
+-- Generate list of possible primes
 primes :: [Integer]
 primes = [p| p<-[1009..9973], isPrime p]
 
@@ -91,23 +91,28 @@ set_primes :: Set.Set Integer
 set_primes = Set.fromList primes
 
 -- Generate candidate lists of length 3 or more 
--- These are increasing lists of permuations of a single prime which are all primes
--- example: take 3 runs [[1013,1031,1103,1301,3011],[1019,1091,1109,1901,9011],[1021,1201,2011]]
+-- These are increasing lists of permutations of a single prime, 
+-- which are all primes and consist of 3 or more primes. For  
+-- example the first 3 runs are: 
+--  [1013,1031,1103,1301,3011],[1019,1091,1109,1901,9011],
+--  [1021,1201,2011]]
+
+
 runs :: [[Integer]]
 runs  = [t'| p<- primes, let s = Set.fromList$map convert_digit_list$ perms$list_of_digits p,
-         let t = Set.intersection s set_primes, Set.size t >= 3, let t' = Set.toList t]
+        let t = Set.intersection s set_primes, Set.size t >= 3, let t' = Set.toList t]
 
--- This filters runs looking at all combinations of size 3 that are arithmetic
+-- This filters runs looking at all combinations of size 3 
+-- that are arithmetic
 -- [2699,2969,6299,9629] is easily found 
--- (0.33 secs, 262,513,984 bytes)
 ans  = [r|r<-runs, let vals = map is_arth$combinations 3 r, elem True vals] 
 
--- main is included
+-- main is included for completeness
 main :: IO ()
 main = do  
     (putStrLn.show) 296962999629
 
+--  = 296962999629 
+
 -- Congratulations, the answer you gave to problem 49 is correct.
 -- You are the 56194th person to have solved this problem.
-
-
